@@ -55,6 +55,7 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 <!-- Installation -->
 #### Installation
 #### Libraries
+##### Board 1
 * Adafruit BusIO
 * Adafruit GFX Library
 * Adafruit SSD1306
