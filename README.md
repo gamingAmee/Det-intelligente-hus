@@ -8,6 +8,9 @@
       <a href="#om-projektet">Om projektet</a>
     </li>
     <li>
+      <a href="#features">Features</a>
+    </li>
+    <li>
       <a href="#setup">Setup</a>
       <ul>
         <li><a href="#krav">Krav</a></li>
@@ -27,8 +30,21 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 <!-- Features -->
 ## Features
 
-### 
+<!-- Setup -->
+### Setup
 
+<!-- Krav -->
+#### Krav
 
+<!-- Installation -->
+#### Installation
 
+<!-- Praktisk brug -->
+### Praktisk brug
+
+<!-- Licens -->
+### Licens
+
+<!-- Kontakt -->
+### Kontakt
 - [x] Vær den bedste
