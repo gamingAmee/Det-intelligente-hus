@@ -17,7 +17,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#praktisk-brug">Praktisk brug</a></li>
     <li><a href="#licens">Licens</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ol>
@@ -39,7 +38,7 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 
 <!-- Krav -->
 #### Krav
-#### HARDWARE
+##### Hardware
 * Atmel mega2560
 * 2x MKR WIFI 1010
 * Servo SG90
@@ -49,14 +48,17 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 * RFID Kort
 * Photoresister
 
-#### SOFTWARE
-Visual studio code m/ PlatformIO til kodning af MKR WIFI 1010
-Microchip studio til kodning af Atmel mega2560
+##### Software
+* Visual studio code m/ PlatformIO til kodning af MKR WIFI 1010
+* Microchip studio til kodning af Atmel mega2560
 
 <!-- Installation -->
 #### Installation
 #### Libraries
-
+##### Board 1
+* Adafruit BusIO
+* Adafruit GFX Library
+* Adafruit SSD1306
 <!-- Licens -->
 ### Licens
 MIT licens
