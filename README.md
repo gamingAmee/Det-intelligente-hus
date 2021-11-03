@@ -25,25 +25,41 @@
 
 <!-- Om projektet -->
 ## Om projektet
-Formålet med Det intelligente Hus er at optimere energiforbruget samt give en bedre oplevelse for husets beboere.
+Formålet med Det intelligente Hus er at optimere energiforbruget samt give en bedre oplevelse for husets beboere, ved hjælp af automatisering of fjernstyring af enheder i hjemmet
 
 <!-- Features -->
 ## Features
+* Brug af kort til åbning af hoveddøren
+* Menu til fjernstyring af lys
+
 
 <!-- Setup -->
 ### Setup
 
+
 <!-- Krav -->
 #### Krav
+#### HARDWARE
+* Atmel mega2560
+* 2x MKR WIFI 1010
+* Servo SG90
+* DHT11
+* 2x RGB LED
+* OLED Display
+* RFID Kort
+* Photoresister
+
+#### SOFTWARE
+Visual studio code m/ PlatformIO til kodning af MKR WIFI 1010
+Microchip studio til kodning af Atmel mega2560
 
 <!-- Installation -->
 #### Installation
-
-<!-- Praktisk brug -->
-### Praktisk brug
+#### Libraries
 
 <!-- Licens -->
 ### Licens
+MIT licens
 
 <!-- Kontakt -->
 ### Kontakt
