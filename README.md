@@ -59,6 +59,17 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 * Adafruit BusIO
 * Adafruit GFX Library
 * Adafruit SSD1306
+
+##### Board 2
+* MQTT
+* WiFiNINA
+* MFRC522
+* 
+##### Mega
+* Wire
+* Servo
+* SPI
+
 <!-- Licens -->
 ### Licens
 MIT licens
