@@ -28,11 +28,13 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 
 <!-- Features -->
 ## Features
-* Brug af kort til åbning af hoveddøren
-
+### RFID kort til åbning af hoveddør
+Rfid chippen scanner koden fra kortet, Board 2 publisher det så til Thingspeak brokeren via MQTT på det angivne topic(channels/1559675), hvor Board 1 har en subscription.
+Board 1 modtager koden fra Thingspeak brokeren via MQTT og sender det direkte videre til MEGA 2560 boardet over Wire.(I2C)
 
 <!-- Setup -->
 ### Setup
+
 
 
 <!-- Krav -->
