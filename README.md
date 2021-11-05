@@ -29,7 +29,6 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 <!-- Features -->
 ## Features
 * Brug af kort til åbning af hoveddøren
-* Menu til fjernstyring af lys
 
 
 <!-- Setup -->
@@ -42,11 +41,11 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 * Atmel mega2560
 * 2x MKR WIFI 1010
 * Servo SG90
-* DHT11
 * 2x RGB LED
-* OLED Display
 * RFID Kort
-* Photoresister
+* Level converter(3,3v-5v / 5v-3,3v)
+* Photoresistor
+* Kabler
 
 ##### Software
 * Visual studio code m/ PlatformIO til kodning af MKR WIFI 1010
