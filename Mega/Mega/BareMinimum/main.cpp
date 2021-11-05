@@ -5,25 +5,56 @@
 #include <Servo.h>
 
 Servo myservo;
-
+int ifkey = 0;
 int pos = 0;
+
 int REDled = 7;
 int GREENled = 6;
-String rfid = "E2 46 CF 1B";
+String rfid = " E2 46 CF 1B";
+
 void Menu(int howMany);
 void setup()
 {
-	//myservo.attach(8);
-	//pinMode(REDled, OUTPUT);
-	//pinMode(GREENled, OUTPUT);
-	Wire.begin(1); // join i2c bus (address optional for master)
-	Wire.onReceive(Menu);
+	SPI.begin();
 	Serial.begin(9600);
+	myservo.attach(8);
+	pinMode(REDled, OUTPUT);
+	pinMode(GREENled, OUTPUT);
+	Wire.begin(1);
+	Wire.onReceive(Menu);
+	
+}
+void turnservo(int key){
+	if (key == 1)
+	{
+		digitalWrite(GREENled, HIGH);
+		for (pos = 0; pos <= 180; pos += 1)
+		{
+			myservo.write(pos);
+			delay(15);
+		}
+		
+		delay(1000);
+		digitalWrite(GREENled, LOW);
+		for (pos = 180; pos >= 0; pos -= 1)
+		{
+			myservo.write(pos);
+			delay(15);
+		}
+	}
+	else
+	{
+		digitalWrite(REDled, HIGH);
+		delay(1000);
+		digitalWrite(REDled, LOW);
+	}
+	ifkey = 0;
 }
 
-void Menu(int howMany){
+void Menu(int howMany)
+{
 	String test = "";
-	while(1 < Wire.available()) // loop through all but the last
+	while(1 < Wire.available())
 	{
 		char c = Wire.read();
 		test += c;
@@ -32,25 +63,14 @@ void Menu(int howMany){
 	switch (x)
 	{
 		case 1:
-		if (test == rfid){
-			Serial.println("Access granted");
-			//digitalWrite(GREENled, HIGH);
-			//for (pos = 0; pos <= 180; pos += 1) {
-			//myservo.write(pos);
-			//delay(20);
-			//}
-			//digitalWrite(GREENled, LOW);
-			//delay(1000);							//Waits for 1sec before closing again
-			//for (pos = 180; pos >= 0; pos -= 1) {
-			//myservo.write(pos);
-			//delay(15);
-			//}
+		if (test == rfid)
+		{
+			ifkey = 1;
 		}
-		else{
-			Serial.println("Access denied");
-			//digitalWrite(REDled, HIGH);
-			//delay(1000);
-			//digitalWrite(REDled, LOW);
+		else
+		{
+			
+			ifkey = 2;
 		}
 		break;
 		case 2:
@@ -71,5 +91,15 @@ void Menu(int howMany){
 void loop()
 {
 	Wire.onReceive(Menu);
+	
+	if(ifkey == 1){
+		turnservo(ifkey);
+	}
+	if (ifkey == 2)
+	{
+		turnservo(ifkey);
+	}
 	delay(500);
 }
+
+

@@ -16,6 +16,8 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);
 WiFiClient net;
 MQTTClient client;
 
+unsigned long lastMillis = 0;
+
 void connect(){
   client.begin("mqtt3.thingspeak.com", net);
   Serial.print("\nconnecting...");
@@ -78,5 +80,5 @@ void loop() {
   String publishText = "field1=";
   publishText += content;
   client.publish("channels/1559675/publish", publishText);
-  delay(60000);
+  delay(1000);
 }
