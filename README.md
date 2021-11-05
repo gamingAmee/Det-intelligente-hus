@@ -30,7 +30,8 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 ## Features
 ### RFID kort til åbning af hoveddør
 Rfid chippen scanner koden fra kortet, Board 2 publisher det så til Thingspeak brokeren via MQTT på det angivne topic(channels/1559675), hvor Board 1 har en subscription.
-Board 1 modtager koden fra Thingspeak brokeren via MQTT og sender det direkte videre til MEGA 2560 boardet over Wire.(I2C)
+Board 1 læser koden fra Thingspeak brokeren via MQTT og sender det direkte videre til MEGA 2560 boardet over Wire.(I2C)
+MEGA 2560 boardet læser koden og sammenligner den med den kode som den har gemt og hvis de stemmer overens, sender den signal til servo'en om at den skal "åbne døren", vente et sekund og så "lukke døren igen". Der bliver også tændt en grøn LED hvis koden matcher, og hvis den ikke matcher tændes der en rød LED
 
 <!-- Setup -->
 ### Setup
@@ -67,7 +68,7 @@ Board 1 modtager koden fra Thingspeak brokeren via MQTT og sender det direkte vi
 * MQTT
 * WiFiNINA
 * MFRC522
-* 
+
 ##### Mega
 * Wire
 * Servo
