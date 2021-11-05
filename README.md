@@ -34,7 +34,7 @@ Board 1 modtager koden fra Thingspeak brokeren via MQTT og sender det direkte vi
 
 <!-- Setup -->
 ### Setup
-
+![Diagram](https://github.com/gamingAmee/Det-intelligente-hus/blob/master/images/Untitled%20Diagram.drawio.png)
 
 
 <!-- Krav -->
