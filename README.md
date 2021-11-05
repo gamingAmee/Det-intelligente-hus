@@ -28,12 +28,13 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 
 <!-- Features -->
 ## Features
-* Brug af kort til åbning af hoveddøren
-* Menu til fjernstyring af lys
-
+### RFID kort til åbning af hoveddør
+Rfid chippen scanner koden fra kortet, Board 2 publisher det så til Thingspeak brokeren via MQTT på det angivne topic(channels/1559675), hvor Board 1 har en subscription.
+Board 1 modtager koden fra Thingspeak brokeren via MQTT og sender det direkte videre til MEGA 2560 boardet over Wire.(I2C)
 
 <!-- Setup -->
 ### Setup
+
 
 
 <!-- Krav -->
@@ -42,11 +43,11 @@ Formålet med Det intelligente Hus er at optimere energiforbruget samt give en b
 * Atmel mega2560
 * 2x MKR WIFI 1010
 * Servo SG90
-* DHT11
 * 2x RGB LED
-* OLED Display
 * RFID Kort
-* Photoresister
+* Level converter(3,3v-5v / 5v-3,3v)
+* Photoresistor
+* Kabler
 
 ##### Software
 * Visual studio code m/ PlatformIO til kodning af MKR WIFI 1010
