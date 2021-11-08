@@ -10,7 +10,8 @@ const char pass[] = "Siberia51244";
 
 WiFiClient net;
 MQTTClient client;
-long lastPublishMillis = 0;
+unsigned long time_now = 0;
+unsigned long time_now1 = 0;
 void connect() 
 {
  client.begin("mqtt3.thingspeak.com", net);
@@ -18,13 +19,10 @@ void connect()
   while (!client.connect("BA0hJhsyEQstHwUvDRERAzM", "BA0hJhsyEQstHwUvDRERAzM", "TLhieQNcuDDkPiM3eSNIQcEi")) {
     
     Serial.print(".");
-    if ( abs(millis() - lastPublishMillis) > 1000) {
-     
-    lastPublishMillis = millis();
-  }
+    delay(50);
   }
   Serial.println("\nconnected!");
-  
+  client.subscribe("channels/1559675/subscribe/fields/field1", 0);
   
 }
 
@@ -59,7 +57,7 @@ void receiveEvent(int howMany)
     break;
   }
 }
-void sendrfid(String topic, String payload)
+void sendrfid(String payload)
 {
   
   Serial.print("sender");
@@ -72,7 +70,7 @@ void sendrfid(String topic, String payload)
 
 void messageReceived(String &topic, String &payload) {
   Serial.println("incoming: " + topic + " - " + payload);
-  sendrfid(topic, payload);
+  sendrfid(payload);
   // Note: Do not use the client in the callback to publish, subscribe or
   // unsubscribe as it may cause deadlocks when other things arrive while
   // sending and receiving acknowledgments. Instead, change a global variable,
@@ -100,30 +98,25 @@ void setup()
     delay(10000);
   }
   
-  
+  connect();
   client.onMessage(messageReceived);
 
-  connect();
+  
 }
 
 void loop()
 {
   //Wire.onReceive(receiveEvent);
   client.loop();
-  
 
   if (!client.connected()) {
     connect();
-    client.subscribe("channels/1559675/subscribe");
+    
   }
-  client.onMessage(messageReceived);
+client.onMessage(messageReceived);
   
-  if ( abs(millis() - lastPublishMillis) > 10000) {
-     
-    lastPublishMillis = millis();
-  }
+  delay(5000);
 }
 
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
-
